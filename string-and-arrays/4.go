@@ -11,7 +11,6 @@ func contigiousSubarraySum(arr [8]int) int {
 
 	for i := 0; i < len(arr); i++ {
 		tempSum += arr[i]
-		fmt.Println("tempSum -->", tempSum, sum, arr[i])
 
 		if tempSum < 0 {
 			tempSum = 0
