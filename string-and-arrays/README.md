@@ -7,5 +7,5 @@
 * Solution 5. Continuous subarray with given sum (to do)
 * Solution 6. Sort an array of 0s, 1s and 2s
 * Solution 7. Equilibrium point
-* Solution 8.Maximum sum increasing subsequence
+* Solution 8.zig-zag array
 * Solution 9. 
