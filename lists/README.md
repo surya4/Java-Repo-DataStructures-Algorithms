@@ -8,3 +8,4 @@
 * Solution 6. Fix Loop in linked list
 * Solution 7. Reverse a Linked List in groups of given size
 * Solution 8. Doubly LL implementation add basic function
+* Solution 9. LRU Cache
