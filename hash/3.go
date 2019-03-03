@@ -7,71 +7,56 @@ import (
 
 func subArrayFunc(arr []int) int {
 	hm := make(map[int]int)
-	max_el := 0
+
+	// for i := 1; i < len(arr); i++ {
+	// 	arr[i] += arr[i-1]
+	// }
+
+	fmt.Println("arr", arr)
 
 	var sum = 0
+	var returnData = 0
+
 	for i := 0; i < len(arr); i++ {
 		sum += arr[i]
 
-		if arr[i] == 0 {
-			max_el = math.Max(max_el, 1)
-		}
+		// fmt.Println(hm[sum])
 
 		if sum == 0 {
-			max_el = math.Max(max_el, i+1)
+			returnData = i + 1
 		}
 
-		hm[sum] := i
+		if hm[sum] > -1 {
+			lastIndexSeen := hm[sum]
+			returnData = int(math.Max(float64(returnData), float64(i-lastIndexSeen)))
+		} else {
+			hm[sum] = i
+		}
 
-
-		// hm[sum] = hm[sum] + 1
-		// old := hm[sum]
-		// fmt.Println(sum, old)
-
-		// if old == 0 {
-		// 	hm[sum] = i
-		// 	sum += arr[i]
-		// } else {
-		// 	fmt.Println("here i am")
+		// 		for(int p = 0; p < arr.length; p++){
+		// 			sumTillNow += arr[p];
+		// 			if(sumTillNow == 0) largestSubArrayCount = p+1;
+		// 			if(sumMap.containsKey(sumTillNow)){
+		// 					int lastIndexSeen = sumMap.get(sumTillNow);
+		// 					largestSubArrayCount = Math.max(largestSubArrayCount, p-lastIndexSeen);
+		// 			}else{
+		// 					sumMap.put(sumTillNow, p);
+		// 			}
+		// 	}
+		// 	return largestSubArrayCount;
 		// }
 
-		// if val, ok := hm[sum]; ok {
-		// 	//do something here
-		// 	fmt.Println("here i am", val, ok)
-		// }
+		fmt.Println(returnData)
 
-		// hm[sum] = i
-
-		// fmt.Println(hm[sum])
-		// if hm[sum] != 0 {
-		// 	fmt.Println(hm[sum])
-		// 	// hm[sum] = hm[sum]++
-		// } else {
-		// 	hm[sum] = 1
-		// }
-
-		// for k, _ := range hm {
-		// 	// fmt.Println(k, hm[k])
-		// 	hm[k+arr[i]] = hm[k+arr[i]] + 1
-		// 	fmt.Println(k)
-		// }
-
-		// if arr[i] == 0 || sum == 0 || hm[sum] != 0 {
-		// 	state = true
-		// 	break
-		// 	// return state
-		// 	// fmt.Println("here")
-		// }
-		// hm.put(sum, i)
-		fmt.Println(hm)
 	}
 	// fmt.Println(hm)
 	// fmt.Println(arr)
-	return max_el
+	return returnData
 }
 
 func main() {
 	// input := [15,  -2,  2,  -8,  1,  7,  10, 23]
+	// input := []int{1, 2, 3, 3, -9, 6, 7, -8, 1, 9}
 	input := []int{15, -2, 2, -8, 1, 7, 10, 23}
 	fmt.Println(input, " output -->", subArrayFunc(input))
 
