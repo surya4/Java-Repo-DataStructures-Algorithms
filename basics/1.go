@@ -8,5 +8,5 @@ func basicFunc(s string) string {
 
 func main() {
 	input := "hello world"
-	fmt.Println(input, " output -->", basicFunc(input))
+	fmt.Println(input, " <-- input,  output --> ", basicFunc(input))
 }
