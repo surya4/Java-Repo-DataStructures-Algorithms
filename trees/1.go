@@ -3,77 +3,77 @@ package main
 import "fmt"
 
 // Node comment
-type Tree struct {
-	left  *Tree
-	val  int
-	right *Tree
+type Tree1 struct {
+	left  *Tree1
+	val   int
+	right *Tree1
 }
 
-func insert(node *Tree, data int) *Tree {
+func insert1(node *Tree1, data int) *Tree1 {
 	if node == nil {
-		return &Tree{nil, data, nil}
-	} 
+		return &Tree1{nil, data, nil}
+	}
 
 	if data == node.val {
 		return node
-	} 
+	}
 
 	if data < node.val {
-		node.left = insert(node.left, data)
+		node.left = insert1(node.left, data)
 	} else {
-		node.right = insert(node.right, data)
+		node.right = insert1(node.right, data)
 	}
 	return node
 }
 
-func inOrderTraverse(node *Tree) {
-	if node == nil { 
-		return
-	}
-	inOrderTraverse(node.left)
-	fmt.Print(node.val, " ")
-	inOrderTraverse(node.right)
-}
-
-func preOrderTraverse(node *Tree) {
+func inOrderTraverse1(node *Tree1) {
 	if node == nil {
 		return
 	}
-		fmt.Print(node.val, " ")
-		preOrderTraverse(node.left)
-		preOrderTraverse(node.right)
+	inOrderTraverse1(node.left)
+	fmt.Print(node.val, " ")
+	inOrderTraverse1(node.right)
 }
 
-func postOrderTraverse(node *Tree) {
-	if node == nil { 
+func preOrderTraverse1(node *Tree1) {
+	if node == nil {
 		return
 	}
-	postOrderTraverse(node.left)
-	postOrderTraverse(node.right)
+	fmt.Print(node.val, " ")
+	preOrderTraverse1(node.left)
+	preOrderTraverse1(node.right)
+}
+
+func postOrderTraverse1(node *Tree1) {
+	if node == nil {
+		return
+	}
+	postOrderTraverse1(node.left)
+	postOrderTraverse1(node.right)
 	fmt.Print(node.val, " ")
 }
 
 func main() {
-	tree := &Tree{}
-	tree = insert(tree, 1)
-	tree = insert(tree, 2)
-	tree = insert(tree, 3)
-	tree = insert(tree, 4)
-	tree = insert(tree, 5)
-	tree = insert(tree, 5)
-	tree = insert(tree, 7)
-	tree = insert(tree, 8)
-	tree = insert(tree, 9)
+	tree1 := &Tree1{}
+	tree1 = insert1(tree1, 1)
+	tree1 = insert1(tree1, 2)
+	tree1 = insert1(tree1, 3)
+	tree1 = insert1(tree1, 4)
+	tree1 = insert1(tree1, 5)
+	tree1 = insert1(tree1, 5)
+	tree1 = insert1(tree1, 7)
+	tree1 = insert1(tree1, 8)
+	tree1 = insert1(tree1, 9)
 
-fmt.Print("Inorder traversal: "); 
-inOrderTraverse(tree);
-fmt.Println();
+	fmt.Print("Inorder traversal: ")
+	inOrderTraverse1(tree1)
+	fmt.Println()
 
-fmt.Print("PreOrder traversal: "); 
-preOrderTraverse(tree); 
-fmt.Println();
+	fmt.Print("PreOrder traversal: ")
+	preOrderTraverse1(tree1)
+	fmt.Println()
 
-fmt.Print("PostOrder traversal: "); 
-postOrderTraverse(tree); 
-fmt.Println();
+	fmt.Print("PostOrder traversal: ")
+	postOrderTraverse1(tree1)
+	fmt.Println()
 }
