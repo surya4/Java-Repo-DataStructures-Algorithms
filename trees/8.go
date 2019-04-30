@@ -13,6 +13,37 @@ type bSTree8 struct {
 	root *Node8
 }
 
+func (tree *bSTree) insert(data int) {
+	fmt.Println("data: ", data)
+
+	node := &Node{data, nil, nil}
+	fmt.Println("node: ", node)
+	// if tree == nil {
+	// 	tree.root = node
+	// } else {
+	// 	current := tree.root;
+	// 	parent := current;
+	// for true {
+	// 	parent = current;
+	// 	fmt.Print("parent: ", parent);
+
+	// 	if (data < current.data) {
+	// 		current = current.left;
+	// 		if (current == nil) {
+	// 			parent.left = node
+	// 			break;
+	// 		}
+	// 	} else {
+	// 		current = current.right;
+	// 		if (current == nil) {
+	// 			parent.left = node
+	// 			break;
+	// 		}
+	// 	}
+	// }
+	// }
+}
+
 func (tree *bSTree8) insertNode8(data int, node *Node8) {
 	temp := &Node8{data, nil, nil}
 

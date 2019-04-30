@@ -13,38 +13,34 @@ type bSTree2 struct {
 	root *Node2
 }
 
-func (tree *bSTree2) insert(data int) {
-	fmt.Println("data: ", data)
-
+func (tree *bSTree2) insertNode21(data int) {
 	node := &Node2{data, nil, nil}
-	fmt.Println("node: ", node)
-	// if tree == nil {
-	// 	tree.root = node
-	// } else {
-	// 	current := tree.root;
-	// 	parent := current;
-	// for true {
-	// 	parent = current;
-	// 	fmt.Print("parent: ", parent);
+	if tree.root == nil {
+		tree.root = node
+	} else {
+		curr := tree.root
+		par := curr
+		for true {
+			par = curr
 
-	// 	if (data < current.data) {
-	// 		current = current.left;
-	// 		if (current == nil) {
-	// 			parent.left = node
-	// 			break;
-	// 		}
-	// 	} else {
-	// 		current = current.right;
-	// 		if (current == nil) {
-	// 			parent.left = node
-	// 			break;
-	// 		}
-	// 	}
-	// }
-	// }
+			if data < curr.data {
+				curr = curr.left
+				if curr == nil {
+					par.left = node
+					break
+				}
+			} else {
+				curr = curr.right
+				if curr == nil {
+					par.right = node
+					break
+				}
+			}
+		}
+	}
 }
 
-func (tree *bSTree2) insertNode2(data int, node *Node2) {
+func (tree *bSTree2) insertNode22(data int, node *Node2) {
 	temp := &Node2{data, nil, nil}
 
 	if tree.root == nil {
@@ -68,7 +64,7 @@ func (tree *bSTree2) insertNode2(data int, node *Node2) {
 		}
 	}
 
-	tree.insertNode2(data, curr)
+	tree.insertNode22(data, curr)
 }
 
 func preOrderPrintNode2(node *Node2) {
@@ -102,8 +98,12 @@ func main() {
 	tree := &bSTree2{}
 	input1 := []int{9, 4, 17, 3, 6, 5, 7, 22, 20}
 	for i := 0; i < len(input1); i++ {
-		tree.insertNode2(input1[i], tree.root)
+		tree.insertNode21(input1[i])
+		// tree.insertNode22(input1[i], tree.root)
 	}
+
+	// fmt.Println("tree", tree.root.left.right)
+
 	fmt.Print("preOrder ")
 	preOrderPrintNode2(tree.root)
 	fmt.Println()
