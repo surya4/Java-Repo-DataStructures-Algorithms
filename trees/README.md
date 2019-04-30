@@ -1,3 +1,5 @@
+# Trees
+
 * Solution 1. Implement binary tree
 * Solution 2. Implement binary search tree
 * Solution 3. Implement binary min-heap
