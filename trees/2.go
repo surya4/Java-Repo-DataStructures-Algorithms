@@ -102,8 +102,6 @@ func main() {
 		// tree.insertNode22(input1[i], tree.root)
 	}
 
-	// fmt.Println("tree", tree.root.left.right)
-
 	fmt.Print("preOrder ")
 	preOrderPrintNode2(tree.root)
 	fmt.Println()
