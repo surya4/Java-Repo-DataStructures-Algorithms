@@ -20,9 +20,9 @@ func (tree *bSTree2) insertNode21(data int) {
 	} else {
 		curr := tree.root
 		par := curr
+
 		for true {
 			par = curr
-
 			if data < curr.data {
 				curr = curr.left
 				if curr == nil {

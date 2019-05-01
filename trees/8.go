@@ -13,37 +13,6 @@ type bSTree8 struct {
 	root *Node8
 }
 
-func (tree *bSTree) insert(data int) {
-	fmt.Println("data: ", data)
-
-	node := &Node{data, nil, nil}
-	fmt.Println("node: ", node)
-	// if tree == nil {
-	// 	tree.root = node
-	// } else {
-	// 	current := tree.root;
-	// 	parent := current;
-	// for true {
-	// 	parent = current;
-	// 	fmt.Print("parent: ", parent);
-
-	// 	if (data < current.data) {
-	// 		current = current.left;
-	// 		if (current == nil) {
-	// 			parent.left = node
-	// 			break;
-	// 		}
-	// 	} else {
-	// 		current = current.right;
-	// 		if (current == nil) {
-	// 			parent.left = node
-	// 			break;
-	// 		}
-	// 	}
-	// }
-	// }
-}
-
 func (tree *bSTree8) insertNode8(data int, node *Node8) {
 	temp := &Node8{data, nil, nil}
 
@@ -98,10 +67,78 @@ func inOrderPrintNode8(node *Node8) {
 	return
 }
 
-// func closestNodeInBSTree8(arr []int, e int) int {
-// 	head :=
-// 	return e
+func preIterativeTraversal8(node *Node8) {
+	for node != nil {
+		if node.left == nil {
+			fmt.Print(node.data, " -> ")
+			node = node.right
+		} else {
+			curr := node.left
+			for curr.right != nil && curr.right != node {
+				curr = curr.right
+			}
+
+			if curr.right == nil {
+				fmt.Print(node.data, " -> ")
+				curr.right = node
+				node = node.left
+			} else {
+				curr.right = nil
+				node = node.right
+			}
+		}
+	}
+}
+
+// func postIterativeTraversal8(node *Node8) {
+// 	for node != nil {
+// 		if node.left == nil {
+// 			fmt.Print(node.data, " -> ")
+// 			node = node.right
+// 		} else {
+// 			curr := node.left
+// 			for curr.right != nil && curr.right != node {
+// 				curr = curr.right
+// 			}
+
+// 			fmt.Println(node.data, curr, " -> ")
+
+// 			if curr.right == nil {
+// 				curr.right = node
+// 				node = node.left
+// 				// fmt.Print(node.data, " -> ")
+// 			} else {
+// 				curr.right = nil
+// 				// fmt.Print(node.data, " -> ")
+// 				node = node.right
+// 			}
+// 			// fmt.Print(node.data, " -> ")
+// 		}
+// 	}
 // }
+
+func inIterativeTraversal8(node *Node8) {
+	for node != nil {
+		if node.left == nil {
+			fmt.Print(node.data, " -> ")
+			node = node.right
+		} else {
+			curr := node.left
+			for curr.right != nil && curr.right != node {
+				curr = curr.right
+			}
+
+			if curr.right == nil {
+				curr.right = node
+				node = node.left
+			} else {
+				curr.right = nil
+				fmt.Print(node.data, " -> ")
+				node = node.right
+			}
+		}
+	}
+}
 
 func main() {
 	tree := &bSTree8{}
@@ -109,13 +146,24 @@ func main() {
 	for i := 0; i < len(input1); i++ {
 		tree.insertNode8(input1[i], tree.root)
 	}
-	fmt.Print("preOrder ")
+	fmt.Print("preOrder Recursive ")
 	preOrderPrintNode8(tree.root)
 	fmt.Println()
-	fmt.Print("postOrder ")
+	fmt.Print("postOrder Recursive ")
 	postOrderPrintNode8(tree.root)
 	fmt.Println()
-	fmt.Print("inOrder ")
+	fmt.Print("inOrder Recursive ")
 	inOrderPrintNode8(tree.root)
+	fmt.Println()
+
+	fmt.Println()
+	fmt.Print("preOrder Iterative ")
+	preIterativeTraversal8(tree.root)
+	fmt.Println()
+	// fmt.Print("postOrder Iterative ")
+	// postIterativeTraversal8(tree.root)
+	// fmt.Println()
+	fmt.Print("inOrder Iterative ")
+	inIterativeTraversal8(tree.root)
 	fmt.Println()
 }
