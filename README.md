@@ -3,9 +3,6 @@
 ## Basics
 
 * Solution 1 - array manipulation
-* Solution 2 - 
-* Solution 3 - 
-* Solution 4 - 
 
 ## Bit manipulations
 
@@ -55,7 +52,6 @@ list.
 * Solution 14. Given a circular linked list, implement an algorithm which returns node at the beginning of the loop
 * Solution 15. clone list (to-do)
 * Solution 16. 
-* Solution 17. 
 
 ## Number theory
 
@@ -93,11 +89,6 @@ list.
 * Solution 15. Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i.e., “waterbottle” is a rotation of “erbottlewat”).
 * Solution 16. two sum
 * Solution 17. 
-* Solution 18. 
-* Solution 19. 
-* Solution 20. 
-* Solution 21. 
-* Solution 22. 
 
 ## Trees
 
@@ -111,6 +102,3 @@ list.
 * Solution 8. Iterative traversal of Tree WithoutStack Without Recursion
 * Solution 9. Find Closest Value In BST
 * Solution 10. 
-* Solution 11. 
-* Solution 12. 
-* Solution 13. 
