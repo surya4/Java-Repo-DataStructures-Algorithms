@@ -93,7 +93,7 @@ list.
 ## Trees
 
 * Solution 1. Implement binary tree
-* Solution 2. Implement binary search tree
+* Solution 2. Implement binary search tree iteratively and recursively - add node , delete node, inorder, preorder, postorder. to-do : iterative  inorder, preorder, postorder, delete node
 * Solution 3. Implement binary min-heap
 * Solution 4. Implement binary max-heap
 * Solution 5. Implement AVL tree (Red-Black Tree)

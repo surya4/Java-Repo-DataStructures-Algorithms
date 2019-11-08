@@ -1,80 +1,180 @@
-let BSTree = {
-  root : null
-}
+let root = Symbol('root');
 
-function Node(data, left, right) {
-  this.data = data;
-  this.left = left;
-  this.right = right;
-}
-
-function insert(data) {
-  let node = new Node(data, null, null);
-  if (BSTree.root == null) {
-    BSTree.root = node;
-  } else {
-    let current = BSTree.root;
-    let parent = current;
-    while (true){ 
-      parent = current; 
-      if (data < current.data) { 
-          current = current.left; 
-          if (current == null){ 
-              parent.left = node; 
-              break; 
-          } 
-      } else { 
-          current = current.right; 
-          if (current == null){ 
-              parent.right = node; 
-              break; 
-          } 
-      } 
-    }
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
   }
 }
 
-function inOrderTraverse(node) {
-  if (node == null) return;
-  inOrderTraverse(node.left); 
-  process.stdout.write(node.data + " ")
-  inOrderTraverse(node.right); 
+class BSTree {
+  constructor() {
+    this[root] = null;
+  }
+
+  addIter(data) {
+    if (data == null) return
+    let newNode = new Node(data);
+    if (this.root == null) {
+      this.root = newNode;
+    } else {
+     let current = this.root;
+     let parent = null;
+     while (current != null) {
+      parent = current;
+       if (data < current.data) {
+        current = current.left;
+        if (current == null) {
+          parent.left = newNode;
+          break
+        }
+       } else {
+        current = current.right;
+        if (current == null) {
+          parent.right = newNode;
+          break
+        }
+       }
+     } 
+    }
+  }
+
+  addRecur(node, data) {
+    if (data == null) return
+
+    let newNode = new Node(data);
+    if (this.root == null) {
+      this.root = newNode;
+      return
+    }
+
+    if (data <= node.data) {
+      if (node.left == null) {
+        node.left = newNode;
+        return
+      }
+      this.addRecur(node.left, data);
+    } else {
+      if (node.right == null) {
+        node.right = newNode;
+        return
+      }
+      this.addRecur(node.right, data);
+    }
+
+  }
+
+  // delIter(data) {
+  //   if (data == null) return
+  //   let newNode = new Node(data);
+  //   if (this.root == null) {
+  //     this.root = newNode;
+  //   } else {
+
+  //   }
+  // }
+
+  // delRecur(node, data) {
+  //   if (data == null) return
+
+  //   let newNode = new Node(data);
+  //   if (this.root == null) {
+  //     this.root = newNode;
+  //     return
+  //   }
+
+  // }
+
+  preOrderRecur() {
+    const arr = [];
+    const preOrder = (node) => {
+      if (!node) return
+      arr.push(node.data);
+      preOrder(node.left);
+      preOrder(node.right);
+    }
+    preOrder(this.root);
+    console.log("Preorder traversal: ", arr)
+  }
+
+  postOrderRecur() {
+    const arr = [];
+    const postOrder = (node) => {
+      if (!node) return
+      postOrder(node.left);
+      postOrder(node.right);
+      arr.push(node.data);
+    }
+    postOrder(this.root);
+    console.log("Postorder traversal: ", arr)
+  }
+
+  inOrderRecur() {
+    const arr = [];
+    const inOrder = (node) => {
+      if (!node) return
+      inOrder(node.left);
+      arr.push(node.data);
+      inOrder(node.right);
+    }
+    inOrder(this.root);
+    console.log("Inorder traversal: ", arr)
+    return arr;
+  }
+
+  // inOrderIter(node) {
+  //   if (node == null) return
+  //   process.stdout.write(node.data + " -> ")
+  // }
+
+  // preOrderIter(node) {
+  //   if (node == null) return
+  //   process.stdout.write(node.data + " -> ")
+  // }
+
+  // postOrderIter(node) {
+  //   if (node == null) return
+  //   process.stdout.write(node.data + " -> ")
+  // }
 }
 
-function preOrderTraverse(node) {
-  if (node == null) return;
-  process.stdout.write(node.data + " ")
-  preOrderTraverse(node.left);  
-  preOrderTraverse(node.right); 
-}
+const tree1 = new BSTree();
+const tree2 = new BSTree();
 
-function postOrderTraverse(node) {
-  if (node == null) return;
-  postOrderTraverse(node.left);  
-  postOrderTraverse(node.right);
-  process.stdout.write(node.data + " ")
-}
+tree1.addIter(23); 
+tree1.addIter(45); 
+tree1.addIter(16);
+tree1.addIter(37);
+tree1.addIter(3);
+tree1.addIter(99);
+tree1.addIter(22);
+tree1.addIter(5);
+tree1.addIter(12);
+tree1.addIter(67);
+tree1.addIter(34);
 
-// function isTreeBinary() {
-  
-// }
+tree2.addRecur(tree2.root,23); 
+tree2.addRecur(tree2.root,45); 
+tree2.addRecur(tree2.root,16);
+tree2.addRecur(tree2.root,37);
+tree2.addRecur(tree2.root,2);
+tree2.addRecur(tree2.root,99);
+tree2.addRecur(tree2.root,22);
+tree2.addRecur(tree2.root,5);
+tree2.addRecur(tree2.root,12);
+tree2.addRecur(tree2.root,67);
+tree2.addRecur(tree2.root,34);
 
-insert(23); 
-insert(45); 
-insert(16); 
-insert(37); 
-insert(3); 
-insert(99); 
-insert(22);
+// tree1.delIter(34);
+// tree2.delRecur(tree2.root,34);
 
-process.stdout.write("Inorder traversal: "); 
-inOrderTraverse(BSTree.root); 
-console.log();
+console.log("-- Iterative --")
+tree1.inOrderRecur(tree1.root);
+tree1.preOrderRecur(tree1.root);
+tree1.postOrderRecur(tree1.root);
 
-process.stdout.write("PreOrder traversal: "); 
-preOrderTraverse(BSTree.root); 
-console.log();
-
-process.stdout.write("PostOrder traversal: "); 
-postOrderTraverse(BSTree.root); 
-console.log();
+console.log("-- Recursive --")
+tree2.inOrderRecur(tree2.root);
+tree2.preOrderRecur(tree2.root);
+tree2.postOrderRecur(tree2.root);
