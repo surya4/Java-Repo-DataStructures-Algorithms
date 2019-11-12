@@ -40,30 +40,57 @@ class BSTree {
     }
   }
 
-  addRecur(node, data) {
-    if (data == null) return
+  addRecur (data) {
 
+    if (!data) return;
     let newNode = new Node(data);
     if (this.root == null) {
       this.root = newNode;
       return
     }
 
-    if (data <= node.data) {
-      if (node.left == null) {
-        node.left = newNode;
-        return
+    const _add = (node, data) => {
+      if (data <= node.data) {
+        if (!node.left) {
+          node.left = newNode;
+          return
+        }
+        _add(node.left, data)
+      } else {
+        if (!node.right) {
+          node.right = newNode;
+          return
+        }
+        _add(node.right, data)
       }
-      this.addRecur(node.left, data);
-    } else {
-      if (node.right == null) {
-        node.right = newNode;
-        return
-      }
-      this.addRecur(node.right, data);
     }
-
+    _add(this.root, data);
   }
+
+  // addRecur(node, data) {
+  //   if (data == null) return
+
+  //   let newNode = new Node(data);
+  //   if (this.root == null) {
+  //     this.root = newNode;
+  //     return
+  //   }
+
+  //   if (data <= node.data) {
+  //     if (node.left == null) {
+  //       node.left = newNode;
+  //       return
+  //     }
+  //     this.addRecur(node.left, data);
+  //   } else {
+  //     if (node.right == null) {
+  //       node.right = newNode;
+  //       return
+  //     }
+  //     this.addRecur(node.right, data);
+  //   }
+
+  // }
 
   // delIter(data) {
   //   if (data == null) return
@@ -120,7 +147,6 @@ class BSTree {
     }
     inOrder(this.root);
     console.log("Inorder traversal: ", arr)
-    return arr;
   }
 
   // inOrderIter(node) {
@@ -154,20 +180,20 @@ tree1.addIter(12);
 tree1.addIter(67);
 tree1.addIter(34);
 
-tree2.addRecur(tree2.root,23); 
-tree2.addRecur(tree2.root,45); 
-tree2.addRecur(tree2.root,16);
-tree2.addRecur(tree2.root,37);
-tree2.addRecur(tree2.root,2);
-tree2.addRecur(tree2.root,99);
-tree2.addRecur(tree2.root,22);
-tree2.addRecur(tree2.root,5);
-tree2.addRecur(tree2.root,12);
-tree2.addRecur(tree2.root,67);
-tree2.addRecur(tree2.root,34);
+tree2.addRecur(23); 
+tree2.addRecur(45); 
+tree2.addRecur(16);
+tree2.addRecur(37);
+tree2.addRecur(2);
+tree2.addRecur(99);
+tree2.addRecur(22);
+tree2.addRecur(5);
+tree2.addRecur(12);
+tree2.addRecur(67);
+tree2.addRecur(34);
 
 // tree1.delIter(34);
-// tree2.delRecur(tree2.root,34);
+// tree2.delRecur(34);
 
 console.log("-- Iterative --")
 tree1.inOrderRecur(tree1.root);
