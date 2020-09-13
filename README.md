@@ -6,7 +6,7 @@
 
 ## Bit manipulations
 
-* Solution 1 - 
+* Solution 1 - Two numbers sum : [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
 
 ## DP
 
