@@ -1,4 +1,4 @@
-# Basic DS-Algo implementation in JavaScript && GoLang
+# Basic DS-Algo implementation in JavaScript || GoLang
 
 ## Basics
 
@@ -7,6 +7,7 @@
 ## Bit manipulations
 
 * Solution 1 - Two numbers sum : [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
+* Solution 2 - Validate subsequence
 
 ## DP
 
