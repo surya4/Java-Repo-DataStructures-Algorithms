@@ -126,6 +126,8 @@ list.
   * diameter of tree
   * level order traversal of tree using single queue
   * morris traversal of tree - todo-
+* Solution 12. Branch sums of binary tree
+
 
 More - to-do in tree
 
