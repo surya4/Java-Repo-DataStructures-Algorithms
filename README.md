@@ -1,4 +1,4 @@
-# Basic DS-Algo implementation in JavaScript && GoLang
+# Basic DS-Algo implementation in JavaScript || GoLang
 
 ## Basics
 
@@ -6,13 +6,15 @@
 
 ## Bit manipulations
 
-* Solution 1 - 
+* Solution 1 - Two numbers sum : [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
+* Solution 2 - Validate subsequence
+* Solution 3 - 
 
 ## DP
 
 * Solution 1. get x numbers in fibonacci series
 * Solution 2. return indices of numbers such that they add up to a specific target - Perfect Sum
-* Solution 3. Given an array of integersfind the subset of non-adjacent elements with the maximum sum. (to do)
+* Solution 3. Given an array of integers find the subset of non-adjacent elements with the maximum sum. (to do)
 * Solution 4. maximum sum increasing subsequence
 
 ## Graph
@@ -110,7 +112,7 @@ list.
 * Solution 7. Implement Red-Black tree - to-do
 * Solution 8. Iterative traversal of Tree Without Stack Without Recursion - to-do
 * Solution 9. BST -
-  * find closest value to int in tree
+  * find closest value to int in tree - [https://leetcode.com/problems/closest-binary-search-tree-value/submissions/](https://leetcode.com/problems/closest-binary-search-tree-value/submissions/)
   * kth closest value in tree (to-do)
   * all nodes at k distance
 * Solution 10. BST -
@@ -124,6 +126,8 @@ list.
   * diameter of tree
   * level order traversal of tree using single queue
   * morris traversal of tree - todo-
+* Solution 12. Branch sums of binary tree
+
 
 More - to-do in tree
 
